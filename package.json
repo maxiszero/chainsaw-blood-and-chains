@@ -1,0 +1,12 @@
+{
+  "name": "chainsaw-blood-and-chains",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An offline cinematic third-person action vertical slice",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node tests/combat.test.mjs && node tests/save.test.mjs && node tests/simulation.test.mjs && node tests/lifecycle.test.mjs",
+    "test:browser": "node tests/browser.cjs"
+  }
+}

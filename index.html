@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#121513">
+  <meta name="description" content="Blood & Chains — a cinematic, offline third-person anime action game. Enter the warehouse, pull the cord, and survive the Zombie Devil.">
+  <title>CHAINSAW MAN — Blood & Chains</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body data-mode="loading">
+  <canvas id="stage" aria-label="3D game world. Use WASD to move, J to attack, K for heavy attack, Space to dodge."></canvas>
+  <div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <div id="loading"><span class="tiny">PUBLIC SAFETY // ARCHIVE 001</span><b>BLOOD & CHAINS</b><div class="load-track"><i></i></div><span id="load-label">Building the world…</span></div>
+  <header id="masthead">
+    <div class="agency"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 3 39 12v20L22 41 5 32V12Z M22 8v28M9 14l26 16M9 30l26-16"/></svg><div>PUBLIC SAFETY<span>DEVIL HUNTER DIVISION</span></div></div>
+    <div class="edition"><i></i> CHAPTER ONE<span>—</span> TOKYO, JAPAN</div>
+    <button class="sound-button" id="sound-button" aria-label="Toggle sound" title="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM16 8q5 4 0 8M19 5q8 7 0 14"/></svg><span>SOUND ON</span></button>
+  </header>
+  <main id="menu">
+    <div class="menu-copy">
+      <div class="eyebrow"><span>01 /</span> A DEVIL HUNTER'S BEGINNING</div>
+      <h1><span>CHAINSAW</span><span class="man">MAN<span class="title-streak" aria-hidden="true"></span></span></h1>
+      <div class="subtitle"><i></i>BLOOD & CHAINS</div>
+      <p class="tagline">All he wanted was a normal life.<br>Then he pulled the cord.</p>
+      <nav class="main-nav" aria-label="Main menu">
+        <button class="play-button" id="play-button"><span class="play-symbol">▶</span><span id="play-label">BEGIN STORY</span><span class="button-arrow">↗</span></button>
+        <button class="nav-button" data-panel="chapters"><span>01</span> CHAPTER SELECT <i>↗</i></button>
+        <button class="nav-button" id="training-button"><span>02</span> TRAINING ROOM <i>↗</i></button>
+        <button class="nav-button" data-panel="settings"><span>03</span> SETTINGS <i>↗</i></button>
+      </nav>
+    </div>
+    <div class="hero-caption"><div class="vertical-jp" lang="ja">夢を見せてくれ</div><span class="caption-rule"></span><p><span>DENJI</span>THE BOY WITH A DEVIL'S HEART.</p></div>
+    <aside class="episode-note"><span class="tiny">THE WAREHOUSE / PLAYABLE PROLOGUE</span><p>A DOG. A DREAM.<br><em>A CHAINSAW.</em></p><div><span class="status-dot"></span> SINGLE PLAYER <span class="slash">/</span> OFFLINE READY</div></aside>
+  </main>
+  <footer id="menu-footer"><span>CHAPTER ONE — PUBLIC SAFETY <b> / </b> v0.1</span><div><button data-panel="controls">HOW TO PLAY</button><span>+</span><button data-panel="credits">CREDITS</button></div><span class="footer-right">AN UNOFFICIAL FAN PROJECT <b>↗</b></span></footer>
+  <section id="hud" aria-label="Game status">
+    <div class="player-status"><div class="hunter"><b>DENJI</b><span id="form-label">HUMAN / DEVIL HUNTER</span></div><div class="health-track"><i id="health-fill"></i></div><div class="vitals"><span id="health-value">100 / 100</span><span>VITALITY</span></div><div class="blood-line"><span>ENGINE</span><div><i id="blood-fill"></i></div><b id="blood-value">100</b></div></div>
+    <div class="mission-status"><span class="tiny" id="mission-label">PROLOGUE / THE WAREHOUSE</span><strong id="objective">Find Pochita</strong><span id="objective-detail">Every dream starts somewhere.</span></div>
+    <button id="pause-button" aria-label="Pause game">Ⅱ</button>
+    <div id="rank"><strong id="rank-letter">D</strong><span id="rank-name">DREAMER</span><small><b id="combo-count">0</b> HITS</small></div>
+    <div id="boss-hud"><div><span>ZOMBIE DEVIL</span><small id="boss-phase">THE DEAD DON'T DREAM</small></div><div class="boss-track"><i id="boss-fill"></i></div></div>
+    <div id="context-prompt"><kbd>E</kbd><span>Talk to Pochita</span></div>
+    <div id="lock-reticle" aria-hidden="true">◇</div>
+    <div class="controls-strip"><span><kbd>W A S D</kbd> MOVE</span><span><kbd>J</kbd> / <kbd>LMB</kbd> CUT</span><span><kbd>K</kbd> / <kbd>RMB</kbd> HEAVY</span><span><kbd>SPACE</kbd> DODGE</span><span><kbd>Q</kbd> PARRY</span><span><kbd>F</kbd> RIP & TEAR</span><span><kbd>C</kbd> LOCK</span></div>
+    <div class="fuel-status" id="special-label"><b>F</b> RIP & TEAR <span>35 BLOOD</span></div>
+  </section>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="impact" aria-hidden="true"></div><div id="damage-wash" aria-hidden="true"></div>
+  <section id="cinematic"><div class="letterbox top"></div><div class="letterbox bottom"></div><div class="cinema-label">PUBLIC SAFETY ARCHIVES <span>01</span></div><div id="dialogue"><span id="speaker"></span><p id="dialogue-text"></p></div><button id="skip-cinematic">SKIP <kbd>ENTER</kbd></button></section>
+  <div id="manga" aria-hidden="true"><div class="manga-speed"></div><span id="manga-word" lang="ja">ギャアア</span><small id="manga-caption">PULL. THE. CORD.</small></div>
+  <dialog id="panel"><button class="close-panel" id="close-panel" aria-label="Close panel">×</button><div id="panel-content"></div></dialog>
+  <div id="mobile-note">DESKTOP EXPERIENCE<span>A keyboard and mouse are required to play.</span></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

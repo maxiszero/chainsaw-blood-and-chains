@@ -1,0 +1,13 @@
+node_modules/
+tests/artifacts/
+test-results/
+playwright-report/
+dist/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
